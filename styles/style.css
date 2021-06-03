@@ -1,0 +1,52 @@
+/* setting up background image*/
+section {
+    background-image: url(../img/keith-misner-h0Vxgz5tyXA-unsplash.jpg);
+    height: 100vh;
+}
+
+/* styling single card */
+.card{
+    background-color: rgb(247, 247, 108);
+    min-height: 200px;
+    min-width: 200px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    border: 2px solid black;
+    box-shadow: 10px 5px 5px rgb(44, 44, 44);
+}
+.pushPin{
+    height: 60px;
+    width: 60px;
+    margin-top: -10px;
+}
+
+.card .card-header{
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    height: 30px;
+    width: 100%;
+    justify-content: center;
+    border: none;
+}
+.card .card-body{
+    align-content: center;
+    margin-top: 30px;
+    margin-bottom: 0;
+    padding: 0;
+}
+.card .card-body textarea{
+    background-color: rgb(247, 247, 108);
+
+    box-sizing: border-box;
+    padding: 7px;
+    height: 170px;
+    width: 200px;
+    margin-bottom: 0;
+    border: none;
+}
+/* remowing the border when each note is created */
+.card .card-body textarea:focus, input:focus{
+    outline: none;
+}
