@@ -7,32 +7,32 @@ section {
 /* styling single card */
 .card{
     background-color: rgb(247, 247, 108);
-    min-height: 200px;
-    min-width: 200px;
+    min-height: 150px;
+    min-width: 150px;
     position: absolute;
     top: 0;
     left: 0;
-    border: 2px solid black;
+    border: 2px solid rgb(48, 39, 39);
     box-shadow: 10px 5px 5px rgb(44, 44, 44);
 }
 .pushPin{
     height: 60px;
     width: 60px;
-    margin-top: -10px;
+    margin-top: -25px;
 }
 
 .card .card-header{
     position: absolute;
     top: 0;
     bottom: 0;
-    height: 30px;
+    height: 20px;
     width: 100%;
     justify-content: center;
     border: none;
 }
 .card .card-body{
     align-content: center;
-    margin-top: 30px;
+    margin-top: 20px;
     margin-bottom: 0;
     padding: 0;
 }
@@ -41,12 +41,23 @@ section {
 
     box-sizing: border-box;
     padding: 7px;
-    height: 170px;
-    width: 200px;
+    height: 120px;
+    width: 150px;
     margin-bottom: 0;
     border: none;
 }
 /* remowing the border when each note is created */
 .card .card-body textarea:focus, input:focus{
     outline: none;
+}
+/* add new note element */
+#addNewNote{
+    border-radius: 10px;
+    margin: 5px;
+    padding: 5px;
+    background-color:rgba(226, 226, 219, 0.7);
+}
+#addNewNote:active{
+    border: solid rgb(44, 44, 44) 2px;
+    box-shadow: 10px 5px 5px rgb(44, 44, 44);
 }
