@@ -1,0 +1,24 @@
+#analogClock{
+    width: 12em;
+}
+#weekDay{
+    font-weight: bold;
+    background-color: #2eb3a1;
+    color: #f8f9fa;
+    /* Padding introduced to resolve margin collapse issue */
+    padding-top: 2px;
+    padding-bottom: 2px;
+}
+#weekDay div{
+    border: #f8f9fa dashed 2px;
+    margin: 5px;
+}
+#weekDay h6{
+    font-size: 1.2em;
+    text-decoration: underline;
+    padding-bottom: none;
+}
+#weekDay p{
+    padding: 5px;
+    font-size: 0.7em;
+}

@@ -10,14 +10,12 @@ canvasClock.translate(clockRadius, clockRadius);
 clockRadius = clockRadius * 0.9;
 
 // starting the clock ticking
+// as 1s = 1000ms the interval is set so that the hands will change their position at every second
 setInterval(createClock, 1000);
 
 // creating a clock function
 function createClock(){
-    // adding a circular arc to the current sub-path
-    canvasClock.arc(0, 0, clockRadius, 0 , 2 * Math.PI);
-    canvasClock.fillStyle = "rgba(226, 226, 219, 0.7)";
-    canvasClock.fill();
+
 
     clockFace(canvasClock, clockRadius);
     clockNumbers(canvasClock, clockRadius);
@@ -26,6 +24,13 @@ function createClock(){
 
 // creating clock's face center
 function clockFace(canvasClock, clockRadius){
+
+    // adding a circular arc to the current sub-path
+    canvasClock.beginPath();
+    canvasClock.arc(0, 0, clockRadius, 0 , 2 * Math.PI);
+    canvasClock.fillStyle = "rgba(226, 226, 219, 0.7)";
+    canvasClock.fill();
+    // adding clock's center
     canvasClock.beginPath();
     canvasClock.arc(0, 0, clockRadius * 0.07, 0, 2 * Math.PI);
     // color dark (as per Bootstrap 5 nomenclature)
@@ -79,10 +84,11 @@ function clockRun(canvasClock, clockRadius){
 function clockHands(canvasClock, handAngle, lenght, width){
     canvasClock.beginPath();
     canvasClock.lineWidth = width;
-    // chaging the hands color to dark (Bootstrap 5 nomenclature)
-    canvasClock.strokeStyle = "#343a40";
     // butt round square
     canvasClock.lineCap = 'square';
+    // chaging the hands color to dark (Bootstrap 5 nomenclature)
+    canvasClock.strokeStyle = "#343a40";
+
     canvasClock.moveTo(0,0);
     canvasClock.rotate(handAngle);
     canvasClock.lineTo(0, -lenght);
