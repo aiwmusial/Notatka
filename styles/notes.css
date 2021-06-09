@@ -38,18 +38,35 @@ section {
 }
 .card .card-body textarea{
     background-color: rgb(247, 247, 108);
-
     box-sizing: border-box;
     padding: 7px;
-    height: 120px;
-    width: 150px;
+    height: 130px;
+    width: 130px;
     margin-bottom: 0;
     border: none;
 }
+.card .footer{
+    text-align: center;
+}
+.card .footer .saveNote{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.card .footer .deleteNote{
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
 /* remowing the border when each note is created */
 .card .card-body textarea:focus, input:focus{
     outline: none;
 }
+/* bringing the card of intrest to the top */
+.card:hover{
+    z-index: 1;
+}
+
+
 /* add new note element */
 #addNewNote{
     border-radius: 10px;
