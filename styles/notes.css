@@ -7,7 +7,7 @@ section{
 /* styling single card */
 .card{
     background-color: rgb(247, 247, 108);
-    min-height: 150px;
+    min-height: 130px;
     min-width: 150px;
     position: absolute;
     top: 0;
@@ -40,7 +40,7 @@ section{
     background-color: rgb(247, 247, 108);
     box-sizing: border-box;
     padding: 7px;
-    height: 130px;
+    height: 110px;
     width: 130px;
     margin-bottom: 0;
     border: none;

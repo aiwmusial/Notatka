@@ -65,6 +65,10 @@ function getSingleNote(el){
         newCardAnywhere: el.style.transform
     }
 }
+// ensuring new notes will appear in new locations
+document.getElementById('addNewNote').addEventListener('click', function AddNoteInDoc(){
+    addNote();
+});
 
 // function creating a new note
 
@@ -106,27 +110,29 @@ function addNote(options){
         footer.classList.add('footer');
         saveBtn.classList.add('saveNote');
         deleteBtn.classList.add('deleteNote');
-        saveBtn.innerHTML = '<i class="far fa-save fa-lg"></i>';
-        deleteBtn.innerHTML = '<i class="far fa-trash-alt fa-lg"></i>';
+        saveBtn.innerHTML = '<i class="far fa-save fa-md"></i>';
+        deleteBtn.innerHTML = '<i class="far fa-trash-alt fa-md"></i>';
     
 
     // defining events to save and delete notes
     function clickSave(){
-        // let item = {};
         // console.log(getSingleNote(div));
         saveNote(getSingleNote(div));
     }
     function clickDelete(){
+        // deleting note from the local storage
         deleteNote(getSingleNote(div));
+        // deleting the note created within the document
+        document.body.removeChild(div);
     }
 
     // applying the properties of the noteSetUp to each div, otherwise the note will not save correctly to the local storage
     // adding an unique ID to each card div
     div.id = noteSetUp.id;
     // asigning the card body the content created in note set up
-    div.body = noteSetUp.body;
+    textArea.value = noteSetUp.body;
     // asigning the location of the indyvidual note (saving it)
-    textArea.newCardAnywhere = noteSetUp.newCardAnywhere;
+    div.style.transform = noteSetUp.newCardAnywhere;
 
     // adding event listeners to the btns
     saveBtn.addEventListener('click', clickSave);
@@ -147,10 +153,7 @@ function addNote(options){
     // add card element to the doc body
     document.body.appendChild(div);     
 };
-// ensuring new notes will appear in new locations
-document.getElementById('addNewNote').addEventListener('click', function AddNoteInDoc(){
-    addNote();
-});
+
 
 // function covering the local Storage operations: save and delete
 function localStorageItems(){
@@ -170,6 +173,7 @@ function localStorageItems(){
             addNote(note);
         }
     };
+    notesSaved();
 }
 localStorageItems();
 
