@@ -56,16 +56,17 @@ function releaseToStop(){
 
 // getting the content of single note
 function getSingleNote(el){
-    var textArea = el.querySelector('textarea');
+    let textArea = el.querySelector('textarea');
     return {
-        content: textArea.value,
+        body: textArea.value,
         id: el.id,
         newCardAnywhere: el.style.transform
     }
 }
 
 // function creating a new note
-document.getElementById('addNewNote').addEventListener('click', function addNote(options){
+
+function addNote(options){
     
     // creating a div element containing future note
     let div = document.createElement('div');
@@ -78,9 +79,10 @@ document.getElementById('addNewNote').addEventListener('click', function addNote
     let footer = document.createElement('div');
     let saveBtn = document.createElement('span');
     let deleteBtn = document.createElement('span');
+    // setting up a single note
     let noteSetUp = options || {
+        id: new Date().getTime(),
         body: '',
-        id: new Date().getTime,
         newCardAnywhere: "translateX(" + Math.random() * 100 + "px) translateY(" + Math.random() * 500 + "px)"
     }
     
@@ -108,13 +110,22 @@ document.getElementById('addNewNote').addEventListener('click', function addNote
 
     // defining events to save and delete notes
     function clickSave(){
-        let item = {};
-        
-        saveNote(getSingleNote(card));
+        // let item = {};
+        // console.log(getSingleNote(div));
+        saveNote(getSingleNote(div));
     }
     function clickDelete(){
-        deleteNote(item);
+        deleteNote(getSingleNote(div));
     }
+
+    // applying the properties of the noteSetUp to each div, otherwise the note will not save correctly to the local storage
+    // adding an unique ID to each card div
+    div.id = noteSetUp.id;
+    // asigning the card body the content created in note set up
+    div.body = noteSetUp.body;
+    // asigning the location of the indyvidual note (saving it)
+    textArea.newCardAnywhere = noteSetUp.newCardAnywhere;
+
     // adding event listeners to the btns
     saveBtn.addEventListener('click', clickSave);
     deleteBtn.addEventListener('click', clickDelete);
@@ -133,17 +144,31 @@ document.getElementById('addNewNote').addEventListener('click', function addNote
     
     // add card element to the doc body
     document.body.appendChild(div);     
+};
+// ensuring new notes will appear in new locations
+document.getElementById('addNewNote').addEventListener('click', function AddNoteInDoc(){
+    addNote();
 });
 
-function localStorage(){
-    saveNote = function (item){
+// function covering the local Storage operations: save and delete
+function localStorageItems(){
+    saveNote = function(item){
         //save note
-        localStorage.setItem(note.id, note)
+        localStorage.setItem(item.id, JSON.stringify(item));
     };
-    deleteNote = function (item){
-
+    deleteNote = function(item){
+        localStorage.removeItem(item.id);
     };
-    notesSaved();
+    notesSaved = function(){
+        // eateration through the local storage items
+        for(let i = 0; i < localStorage.length; i++){
+            // getting the separate note by note key (note key is equal to the ID of each note)
+            let note = JSON.parse(localStorage.getItem(localStorage.key(i)));
+            // invoking the create note function on each of the items stored in the localStorage
+            addNote(note);
+        }
+    };
 }
+localStorageItems();
 
 
