@@ -1,12 +1,14 @@
+// globally used variables used within the separate functions
 let card;
+// coordinates
 let loc1;
 let loc2;
 let loc3;
 let loc4;
-// save and delete note
+// save and delete note functions
 let saveNote;
 let deleteNote;
-// display already saved notes
+// display already saved notes function
 let notesSaved;
 
 
