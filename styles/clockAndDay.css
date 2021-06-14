@@ -1,5 +1,8 @@
+#clockContainer{
+    margin-left: 50%;
+}
 #analogClock{
-    width: 30vmin;
+    width: 250px;
 }
 #weekDay{
     font-weight: bold;
