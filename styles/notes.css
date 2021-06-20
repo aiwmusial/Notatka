@@ -78,3 +78,14 @@ section{
     border: solid rgb(44, 44, 44) 2px;
     box-shadow: 10px 5px 5px rgb(44, 44, 44);
 }
+/* description - how to */
+#noteToDo{
+    background-color: #75b282;
+    padding: 5px;
+}
+#noteToDo p{
+    border: #f8f9fa dashed 2px;
+    color: #f8f9fa;
+    font-size: 0.7em;
+    padding: 5px;
+}
