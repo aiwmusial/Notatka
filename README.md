@@ -6,6 +6,10 @@ The Notatka, allows me to pass and save the desired information, change the loca
 but also from the local storage. Furthermore, I do not lose any data after refreshing the webpage. 
 A clock positioned in the top right corner is a cherry on the cake and allows me to have all the information I saved along with the current time displayed.
 </p>
+
+![notatka1](https://user-images.githubusercontent.com/53020292/123318228-4869bb00-d52f-11eb-9676-31aab481c007.PNG)
+
+
 <h2>Technologies Used</h2>
 <ul>
 <li>HTML</li>
